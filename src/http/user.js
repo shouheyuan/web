@@ -2,7 +2,7 @@ import request from '../libs/axios'
 
 export const postRequest = data => {
   return request({
-    url: '/api/user/media_account/list_shop_account',
+    url: '/posts',
     method: 'POST',
     config: {},
     data,
@@ -10,7 +10,7 @@ export const postRequest = data => {
 }
 export const getRequest = data => {
   return request({
-    url: '/api/user/media_account/list_shop_account',
+    url: '/posts/2',
     method: 'GET',
     config: {},
     data,
@@ -18,7 +18,7 @@ export const getRequest = data => {
 }
 export const customizeConfig = data => {
   return request({
-    url: '/api/user/media_account/list_shop_account',
+    url: '/posts/2',
     config: {
       headers: { isDebug: true },
     },
@@ -57,7 +57,7 @@ export const testInterceptorsResponse = data => {
 }
 export const cancelResponse = (data, config) => {
   return request({
-    url: '/api/user/media_account/list_shop_account',
+    url: '/posts/2',
     method: 'GET',
     config: {
       ...config

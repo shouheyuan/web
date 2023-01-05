@@ -8,4 +8,8 @@ module.exports = {
   },
   // 设为false打包时不生成.map文件
   productionSourceMap: false,
+
+  devServer: {
+    proxy: 'http://jsonplaceholder.typicode.com'
+  }
 }

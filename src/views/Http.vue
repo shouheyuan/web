@@ -21,14 +21,14 @@ let controller = null;
 export default {
   methods: {
     postRequest() {
-      let params = { method: "post" };
+      let params = { userId: 1, title: '测试标题', body: '李雷' };
       this.$http.user
         .postRequest(params)
         .then((res) => {})
         .catch((err) => {});
     },
     getRequest() {
-      let params = { method: "11111111111111" };
+      let params = { };
       this.$http.user
         .getRequest(params)
         .then((res) => {})

@@ -5,7 +5,6 @@ const pendingRequest = new Map();
 
 export function addPendingRequest(config) {
     const requestKey = generateReqKey(config);
-    // const controller = new AbortController()
     config.cancelToken =
         config.cancelToken ||
         new axios.CancelToken((cancel) => {
@@ -13,10 +12,6 @@ export function addPendingRequest(config) {
                 pendingRequest.set(requestKey, cancel);
             }
         });
-    // config.signal = config.signal || controller.signal
-    // if (!pendingRequest.has(requestKey)) {
-    //     pendingRequest.set(requestKey, controller);
-    // }
 }
 
 export function removePendingRequest(config, src) {

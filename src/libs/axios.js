@@ -5,8 +5,7 @@ import { addPendingRequest, removePendingRequest } from './axios-helper'
 
 import { getToken, LogOut } from '@/utils/tools'
 import { logInfo, redLog } from '@/utils/log'
-const baseURL = window.location.protocol + '//test-api.adsdesk.cn/adsdesk'
-
+const baseURL = window.location.protocol + '//jsonplaceholder.typicode.com'
 
 
 const instance = axios.create({
