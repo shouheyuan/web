@@ -1,29 +1,27 @@
 <template>
   <div id="nav">
     <div>
-      <router-link v-for="item in comsList" :to="item.path" :key="item.path">{{item.name}}</router-link> 
+      <router-link v-for="item in comsList" :to="item.path" :key="item.path"
+        ><a-button>{{ item.name }} </a-button></router-link
+      >
     </div>
   </div>
-  <router-view/>
 
+  <router-view />
 </template>
 <script>
 export default {
-  setup() {
-    comsList: []
-  },
+  setup() {},
   created() {
-     const { routes } = this.$router.options
-    this.comsList = routes.map(r => {
-      const path = r.path
-      const name = path.slice(1)
-      return { name, path }
-    })
+    const { routes } = this.$router.options;
+    this.comsList = routes.map((r) => {
+      const path = r.path;
+      const name = path.slice(1);
+      return { name, path };
+    });
   },
-  methods: {
-   
-  }
-}
+  methods: {},
+};
 </script>
 <style lang="less">
 #app {
