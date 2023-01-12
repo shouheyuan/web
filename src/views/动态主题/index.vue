@@ -1,18 +1,22 @@
 <template>
   <div>
     <a-alert message="需要切换less文件" type="warning" />
-    
-    <h1>动态改变主题色</h1>
-    <a-radio-group @change="onChange">
-      <a-radio-button value="red">红色</a-radio-button>
-      <a-radio-button value="green">绿色</a-radio-button>
-      <a-radio-button value="yellow">黄色</a-radio-button>
-    </a-radio-group>
-    <br />
-    <a-button type="primary">按钮的主题色</a-button>
+    <a-row>
+      <a-col :span="24">
+        <h1>动态改变主题色</h1>
+      </a-col>
+      <a-col :span="12">
+        <a-radio-group @change="onChange">
+          <a-radio-button value="red">红色</a-radio-button>
+          <a-radio-button value="green">绿色</a-radio-button>
+          <a-radio-button value="yellow">黄色</a-radio-button>
+        </a-radio-group>
+      </a-col>
+      <a-col :span="12">
+        <a-button type="primary">按钮的主题色</a-button>
+      </a-col>
+    </a-row>
 
-    <br />
-    <br />
     <h1>全局主题色-使用ant API</h1>
     <a-button danger type="primary">Primary Button</a-button>
     <a-button danger>Default Button</a-button>

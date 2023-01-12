@@ -1,5 +1,5 @@
 const { resolve } = require('path')
-const { getThemeVariables } = require('ant-design-vue/dist/theme');
+// const { getThemeVariables } = require('ant-design-vue/dist/theme');
 
 module.exports = {
   chainWebpack: config => {
