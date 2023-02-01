@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "lint:css": "stylelint src/**/*.less --fix"
   },
   "dependencies": {
     "ant-design-vue": "^3.2.15",
@@ -22,7 +23,13 @@
     "@vue/cli-service": "~4.5.15",
     "@vue/compiler-sfc": "^3.0.0",
     "less": "^3.0.4",
-    "less-loader": "^5.0.0"
+    "less-loader": "^5.0.0",
+    "postcss-html": "^1.5.0",
+    "postcss-less": "^6.0.0",
+    "stylelint": "^14.16.1",
+    "stylelint-config-css-modules": "^4.1.0",
+    "stylelint-config-standard": "^29.0.0",
+    "stylelint-order": "^6.0.1"
   },
   "browserslist": [
     "> 1%",

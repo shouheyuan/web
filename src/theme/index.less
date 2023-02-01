@@ -1,10 +1,8 @@
-
-@import '~ant-design-vue/dist/antd.less';
+@import url('~ant-design-vue/dist/antd.less');
 
 :root {
-    --main-color: green;
+  --main-color: green;
 }
-
 
 @primary-color: red; // 全局主色
 @link-color: #1890ff; // 链接色
@@ -21,8 +19,8 @@
 @box-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15); // 浮层阴影
 
 .ant-btn {
-    &.ant-btn-primary {
-      border-color: ~'var(--main-color)';
-      background: ~'var(--main-color)';
-    }
+  &.ant-btn-primary {
+    border-color: ~'var(--main-color)';
+    background: ~'var(--main-color)';
+  }
 }

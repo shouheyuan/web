@@ -21,8 +21,6 @@ const instance = axios.create({
 const interceptorsRequest = config => {
   removePendingRequest(config, '请求') // 检查是否存在重复请求，若存在则取消已发的请求
   addPendingRequest(config) // 把当前请求添加到pendingRequest对象中
-  // console.log('请求拦截器', config)
-
   return config
 }
 // 请求拦截器-错误处理
@@ -35,7 +33,7 @@ const interceptorsResponse = res => {
   removePendingRequest(res.config, '响应-成功'); // 从pendingRequest对象中移除请求
   // console.log('响应拦截', res)
   if (res.data.code === 200 || res.data.success) {
-    // 将响应数据添加到返回服务data
+    // 添加http响应状态并返回
     res.httpData = {
       status: res.status,
       statusText: res.statusText,

@@ -1,4 +1,5 @@
 const { resolve } = require('path')
+
 // const { getThemeVariables } = require('ant-design-vue/dist/theme');
 
 module.exports = {
@@ -6,6 +7,9 @@ module.exports = {
     // 别名配置
     config.resolve.alias
       .set('@', resolve('src'))
+  },
+  configureWebpack: {
+    plugins: []
   },
   css: {
     loaderOptions: {
