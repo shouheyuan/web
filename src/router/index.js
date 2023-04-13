@@ -1,37 +1,40 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-const routes = [
-  {
-    path: '/',
-    redirect: '/http',
-    component: () => import('../layout/index.vue'),
-    children: [
-      {
-        path: 'http',
-        name: 'HTTP',
-        component: () => import(/* webpackChunkName: "about" */ '../views/Http.vue'),
-        meta: {
-          title: 'Http',
-          subTitle: 'axios 封装'
-        }
-      },
-      {
-        path: '组件库二次封装',
-        name: '组件库二次封装',
-        component: () => import('../views/组件库二次封装/index.vue')
-      },
-      {
-        path: '动态主题',
-        name: '动态主题',
-        component: () => import('../views/动态主题/index.vue')
-      }
-    ]
-  },
-]
-
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes: [
+    {
+      path: '/:pathMatch(.*)*',
+      component: () => import('../layout/404.vue'),
+    }
+  ]
+})
+router.addRoute({ name: '/', path: '/', component: () => import('../layout/index.vue') })
+// router.beforeEach(async to => {})
+const requireComponent = require.context(
+  // 组件目录的相对路径
+  '../views',
+  // 是否查询子目录
+  true,
+  // 匹配基础组件文件名的正则表达式
+  /\index.vue$/
+)
+requireComponent.keys().forEach(fileName => {
+  const componentConfig = requireComponent(fileName)
+
+  // 获取组件名称
+  const componentName = fileName
+    .split('/')
+    .slice(1, 2)
+    .join()
+    .replace(/\.\w+$/, '')
+
+  // 自动注册组件
+  router.addRoute('/', {
+    path: `${componentName.toLowerCase()}`,
+    name: `${componentName}`,
+    component: componentConfig.default || componentConfig
+  })
 })
 
 export default router
